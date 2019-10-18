@@ -1,0 +1,71 @@
+
+
+
+
+<form action="/list" method="post">
+    <input type="text" name="task" placeholder="Task">
+    <br>
+    <input type="date" name="date" required pattern="\d{4}-\d{2}-\d{2}">
+    <br>
+    <button type="submit" value="Add">Make Note</button>
+</form>
+
+{% for task in values %}
+    <div class="blocks">
+        <li>{{task.id}}</li>
+        <li>{{task.task}}</li>
+        <li>{{task.date}}</li>
+        <a href="/delete/{{ task.id }}">ERASE</a>
+    </div>
+    {% endfor %}
+<style>
+    form{
+        text-align: center;
+        align-content: center;
+        padding: 30px;
+        margin: 0px auto;
+        width: 50%;
+        box-shadow: 2px 0px 10px 0px rgba(0,0,0,0.7);
+    }
+    input{
+        font-size:1.5em;
+        border-radius: 5px;
+        padding: 5px;
+        width: 50%;
+    }
+    button{
+        width: 50%;
+        background-color: blue;
+        color: white;
+        padding: 7px 10px;
+    }
+    .blocks{
+        border:1px solid lightgrey;
+        width:40%;
+        padding: 10px;
+        margin-top: 10px;
+        margin: 5px auto;
+        text-align: center;
+        box-sizing: border-box;
+        font-family: Arial;
+        font-size:1.1em;
+
+    }
+    .blocks li{
+        list-style-type: none;
+        display: inline-block;
+        width: 30%;
+        padding: 5px;
+    }
+    .blocks a{
+        padding: 7px 10px;
+        color: white;
+        background-color: red;
+        outline: none;
+        border: none;
+        display: block;
+        border-radius: 3px;
+        text-decoration: none;
+
+    }
+</style>
